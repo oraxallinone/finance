@@ -1,0 +1,161 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dual Month jQuery Calendar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        .calendar-wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        .calendar-container {
+            width: 500px;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .day {
+            border: 1px solid #ccc;
+            padding: 5px;
+            height: 46px;
+            text-align: center;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 2px 2px #d5d5d5;
+        }
+
+        .day-head {
+            border: 1px solid #ccc;
+            padding: 10px 0px 0px 0px;
+            height: 27px;
+            text-align: center;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 2px 2px #850808;
+            font-size: 14px;
+            font-family: timesnewroman;
+        }
+
+        .header {
+            font-weight: bold;
+            background: #a6a2a2;
+        }
+
+        .spending {
+            font-size: 12px;
+            font-weight: bolder;
+            margin-top: 6px;
+        }
+
+        .highlight {
+            background-color: #00BCD4;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calendar-wrapper">
+        <div class="calendar-container">
+            <div class="calendar-header" id="prev-calendar-title"></div>
+            <div class="calendar" id="prev-calendar"></div>
+        </div>
+
+        <div class="calendar-container">
+            <div class="calendar-header" id="curr-calendar-title"></div>
+            <div class="calendar" id="curr-calendar"></div>
+        </div>
+    </div>
+
+    <script>
+        const spendingData = [
+            { date: '2025-06-28', amount: 100 },
+            { date: '2025-07-02', amount: 150 },
+            { date: '2025-07-05', amount: 80 },
+            { date: '2025-07-15', amount: 200 },
+            { date: '2025-07-22', amount: 60 },
+            { date: '2025-07-27', amount: 2060 }
+        ];
+
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        function generateCalendar(month, year, calendarId, titleId) {
+            const calendar = $(`#${calendarId}`);
+            const title = $(`#${titleId}`);
+            calendar.empty();
+
+            title.text(`${monthNames[month]} ${year}`);
+
+            const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            // Day headers
+            for (let d of daysOfWeek) {
+                calendar.append(`<div class='day-head header'>${d}</div>`);
+            }
+
+            // Blank slots before first day
+            for (let i = 0; i < firstDay; i++) {
+                calendar.append(`<div class='day'></div>`);
+            }
+
+            // Days with spending
+            for (let day = 1; day <= lastDate; day++) {
+                const fullDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                const spend = spendingData.find(s => s.date === fullDate);
+                const highlightClass = spend ? 'highlight' : '';
+                const spendingHtml = spend ? `<div class='spending'>₹${spend.amount}</div>` : '';
+
+                calendar.append(`
+                <div class='day ${highlightClass}'>
+                    ${day}
+                    ${spendingHtml}
+                </div>
+            `);
+            }
+        }
+
+        $(document).ready(function () {
+            const today = new Date();
+            const currMonth = today.getMonth();
+            const currYear = today.getFullYear();
+
+            const prevMonth = currMonth === 0 ? 11 : currMonth - 1;
+            const prevYear = currMonth === 0 ? currYear - 1 : currYear;
+
+            generateCalendar(prevMonth, prevYear, 'prev-calendar', 'prev-calendar-title');
+            generateCalendar(currMonth, currYear, 'curr-calendar', 'curr-calendar-title');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using AdminTemp.Models;
+using AdminTemp.Service;
+
+namespace AdminTemp.Controllers
+{
+    public class DefaultController : Controller
+    {
+        private readonly GraphService _graphService = new GraphService();
+
+
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+
+
+        public ActionResult BarChart()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetBarGraphByGroup(int? g1, int? g2, int? g3, int? g4)
+        {
+            try
+            {
+                var result = _graphService.GetBarGraphByGroupService(g1, g2, g3, g4);
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+    }
+}

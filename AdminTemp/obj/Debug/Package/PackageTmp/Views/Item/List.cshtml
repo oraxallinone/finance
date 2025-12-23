@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<style type="text/css">
+    .wd-100 {
+        width: 100px;
+    }
+
+    .custom-tbl {
+        font-size: 13px;
+        font-family: 'Times New Roman';
+    }
+</style>
+
+<style>
+    .txt-left {
+        text-align: left !important;
+    }
+
+    .txt-center {
+        text-align: center !important;
+    }
+
+    .txt-right {
+        text-align: right !important;
+    }
+</style>
+
+
+
+<style>
+    .bg-light-red {
+        background-color: #ffc8c8 !important;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .table-scroll {
+        display: block;
+        empty-cells: show;
+        border-spacing: 0;
+        border: 1px solid 1px solid #c2c2c2;
+        font-family: 'Times New Roman';
+        font-size: 13px;
+        border-radius: 3px;
+    }
+
+        .table-scroll thead {
+            background-color: #f1f1f1;
+            position: relative;
+            display: block;
+            width: 100%;
+            overflow-y: auto;
+            font-size: small;
+        }
+
+        .table-scroll tbody {
+            display: block;
+            position: relative;
+            width: 100%;
+            overflow-y: scroll;
+            border-top: 1px solid rgba(0,0,0,0.2);
+        }
+
+        .table-scroll tr {
+            width: 100%;
+            display: flex;
+        }
+
+        .table-scroll td, .table-scroll th {
+            flex-basis: 100%;
+            flex-grow: 2;
+            display: block;
+            padding: 3px;
+            text-align: left;
+        }
+
+        .table-scroll.small-first-col td:first-child,
+        .table-scroll.small-first-col th:first-child {
+            flex-basis: 20%;
+            flex-grow: 1;
+        }
+
+        .table-scroll tbody tr:nth-child(2n) {
+            background-color: rgba(130,130,170,0.1);
+        }
+
+        .table-scroll tbody tr:hover {
+            background-color: #17578761;
+        }
+
+    .body-half-screen {
+        max-height: 50vh;
+    }
+
+    .small-col {
+        flex-basis: 10%;
+    }
+</style>
+
+<div class="app-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h3 class="card-title">Item List</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <div class="container">
+                                <table id="gridItem" class="table-scroll small-first-col">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Item Code</th>
+                                            <th>Item Name</th>
+                                            <th>Type</th>
+                                            <th>Unit</th>
+                                            <th>Price</th>
+                                            <th>Gst</th>
+                                            <th>HSN</th>
+                                            <th>IsActive</th>
+                                            <th style="width: 105px" class="txt-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="body-half-screen">
+                                        <tr class="align-middle text-success">
+                                            <td>1</td>
+                                            <td>ITM001</td>
+                                            <td>Rice</td>
+                                            <td>Veg</td>
+                                            <td>Full</td>
+                                            <td>30</td>
+                                            <td>5%</td>
+                                            <td>FFKK004GH</td>
+                                            <td> <span class="badge text-bg-light wd-100">Active</span>  </td>
+                                            <td class="txt-right">
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-solid fa-pen-to-square text-warning"></i></a> |
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle text-danger">
+                                            <td>12</td>
+                                            <td>ITM002</td>
+                                            <td class="text-danger">Chicken</td>
+                                            <td class="text-danger">Nonveg</td>
+                                            <td>Full</td>
+                                            <td>120</td>
+                                            <td>12%</td>
+                                            <td>HSN009IIPP</td>
+                                            <td> <span class="badge text-bg-light wd-100">Active</span>  </td>
+                                            <td class="txt-right">
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-solid fa-pen-to-square text-warning"></i></a> |
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle text-success">
+                                            <td>3</td>
+                                            <td>ITM003</td>
+                                            <td>Dal</td>
+                                            <td>Veg</td>
+                                            <td>Hakf</td>
+                                            <td>20</td>
+                                            <td>5%</td>
+                                            <td>FFKK004GH</td>
+                                            <td> <span class="badge text-bg-light wd-100">Active</span>  </td>
+                                            <td class="txt-right">
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-solid fa-pen-to-square text-warning"></i></a> |
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle text-success">
+                                            <td>4</td>
+                                            <td>ITM004</td>
+                                            <td>Paneer Biriyani</td>
+                                            <td>Veg</td>
+                                            <td>Full</td>
+                                            <td>150</td>
+                                            <td>12%</td>
+                                            <td>FFKK004GH</td>
+                                            <td> <span class="badge text-bg-light wd-100">Active</span>  </td>
+                                            <td class="txt-right">
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-solid fa-pen-to-square text-warning"></i></a> |
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle text-success">
+                                            <td>4</td>
+                                            <td>ITM005</td>
+                                            <td>Alu Bhaja</td>
+                                            <td>Veg</td>
+                                            <td>PC</td>
+                                            <td>120</td>
+                                            <td>5%</td>
+                                            <td>FFKK004GH</td>
+                                            <td> <span class="badge text-bg-light wd-100">Active</span>  </td>
+                                            <td class="txt-right">
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-solid fa-pen-to-square text-warning"></i></a> |
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle text-danger bg-light-red ">
+                                            <td>6</td>
+                                            <td>ITM006</td>
+                                            <td>Mutton</td>
+                                            <td>Nonveg</td>
+                                            <td>Full</td>
+                                            <td>120</td>
+                                            <td>18%</td>
+                                            <td>FFKK004GH</td>
+                                            <td> <span class="badge text-bg-warning wd-100">Inactive</span>  </td>
+                                            <td class="txt-right">
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-solid fa-pen-to-square text-warning"></i></a> |
+                                                <a href="/GoodsMaster/EditGoods"> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer clearfix">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
