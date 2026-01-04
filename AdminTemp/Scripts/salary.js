@@ -4,14 +4,15 @@
     $('#searchDDlG3').hide();
     $('#searchDDlG4').hide();
 
-    $(".div-responsive").css("height", "63vh", "important");
+    // set reasonable default scroll area height (no '!important' via jQuery)
+    $(".div-responsive").css("height", "63vh");
 
     $("#lnkMaximize").click(function () {
-        $(".div-responsive").css("height", "68vh", "important");
+        $(".div-responsive").css("height", "68vh");
     });
 
     $("#lnkMinimize").click(function () {
-        $(".div-responsive").css("height", "63vh", "important");
+        $(".div-responsive").css("height", "63vh");
     });
 
 

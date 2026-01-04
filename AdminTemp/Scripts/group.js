@@ -46,7 +46,7 @@
                 $.each(res, function (index, item) {
                     let c = assignClass(item.GroupType);//"style='background-color: red'";
                     html += "<tr class='" + assignClass(item.GroupType) + "'>";
-                    html += "<td " + c + " >" + (i++) + "</td>";
+                    html += "<td style='width: 15px !important;' " + c + " >" + (i++) + "</td>";
                     html += "<td " + c + " >" + item.GroupName + "</td>";
                     html += "<td " + c + " >" + item.GroupType + "</td>";
                     html += "<td " + c + " >" + (item.IsActive ? 1 : 0) + "</td>";
@@ -211,12 +211,52 @@
     var tbl;
 
     function initDataTable() {
-        tbl = $("#gridUnit").DataTable({
+        // destroy existing table if present
+        if ($.fn.DataTable.isDataTable('#gridTableGroup')) {
+            $('#gridTableGroup').DataTable().clear().destroy();
+        }
+
+        // add filter row under the header if not present
+        if ($('#gridTableGroup thead tr.filter-row').length === 0) {
+            var filterRow = '<tr class="filter-row">';
+            $('#gridTableGroup thead th').each(function () {
+                var $th = $(this);
+                if ($th.hasClass('no-filter')) {
+                    filterRow += '<th></th>';
+                } else {
+                    filterRow += '<th><input type="text" class="form-control form-control-sm column-search" placeholder="Search" /></th>';
+                }
+            });
+            filterRow += '</tr>';
+            $('#gridTableGroup thead').append(filterRow);
+        }
+
+        tbl = $('#gridTableGroup').DataTable({
             destroy: true,
             pageLength: 50,
             searching: true,
             ordering: false,
-            lengthMenu: [5, 10, 20, 50]
+            lengthMenu: [5, 10, 20, 50],
+            order: [],
+            columnDefs: [
+                { targets: 'no-search', searchable: false },
+                { targets: -1, searchable: false, orderable: false }
+            ]
+        });
+
+        // wire up column search inputs
+        tbl.columns().every(function () {
+            var that = this;
+            var idx = this.index();
+            var $input = $('#gridTableGroup thead tr.filter-row th').eq(idx).find('input');
+            if ($input.length) {
+                $input.on('keyup change clear', function () {
+                    var val = $(this).val();
+                    if (that.search() !== val) {
+                        that.search(val).draw();
+                    }
+                });
+            }
         });
     }
 

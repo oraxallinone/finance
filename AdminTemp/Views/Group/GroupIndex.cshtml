@@ -54,11 +54,28 @@
                         </div>
 
 
+                        <style>
+                            .table-responsive {
+                                max-height: 63vh;
+                                overflow: auto;
+                            }
+
+                            .table-responsive #gridTableGroup thead th {
+                                position: sticky;
+                                top: 0;
+                                z-index: 5;
+                                background: #ffffff;
+                            }
+
+                            /* ensure consistent column widths */
+                            #gridTableGroup { width: 100%; table-layout: fixed; }
+                        </style>
+
                         <div class="table-responsive">
                             <table id="gridTableGroup" class="table table-hover  custom-tbl" >
                                 <thead>
                                     <tr>
-                                        <th style="width: 10px">#</th>
+                                        <th style="width: 15px">#</th>
                                         <th>Group Name</th>
                                         <th>Group Type</th>
                                         <th>IsActive</th>
