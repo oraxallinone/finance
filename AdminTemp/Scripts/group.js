@@ -39,13 +39,18 @@
             type: "GET",
             data: { groupType: gtype },
             success: function (res) {
+                // If a DataTable instance exists, destroy it BEFORE replacing tbody
+                if ($.fn.DataTable.isDataTable('#gridTableGroup')) {
+                    $('#gridTableGroup').DataTable().clear().destroy();
+                }
 
+                $("#gridTableGroup tbody").empty();
                 var html = "";
                 var i = 1;
 
                 $.each(res, function (index, item) {
-                    let c = assignClass(item.GroupType);//"style='background-color: red'";
-                    html += "<tr class='" + assignClass(item.GroupType) + "'>";
+                    let c = assignClass(item.GroupType); // returns style string or empty
+                    html += "<tr " + c + ">";
                     html += "<td style='width: 15px !important;' " + c + " >" + (i++) + "</td>";
                     html += "<td " + c + " >" + item.GroupName + "</td>";
                     html += "<td " + c + " >" + item.GroupType + "</td>";
@@ -90,9 +95,9 @@
             type: "POST",
             data: obj,
             success: function (res) {
-                alert("Added Successfully. ID = " + res.Id);
-                fnGetGroup();
+                //alert("Added Successfully. ID = " + res.Id);
                 fnClearGroup();   // Reset form
+                fnGetGroup();
             }
         });
     }
@@ -113,9 +118,9 @@
             type: "POST",
             data: obj,
             success: function (res) {
-                alert("Updated Successfully");
-                fnGetGroup();
+                debugger
                 fnClearGroup();   // Reset form
+                fnGetGroup();
             }
         });
     }
@@ -211,10 +216,6 @@
     var tbl;
 
     function initDataTable() {
-        // destroy existing table if present
-        if ($.fn.DataTable.isDataTable('#gridTableGroup')) {
-            $('#gridTableGroup').DataTable().clear().destroy();
-        }
 
         // add filter row under the header if not present
         if ($('#gridTableGroup thead tr.filter-row').length === 0) {
@@ -258,6 +259,18 @@
                 });
             }
         });
+
+        // Ensure any previous filters/searches are cleared so full dataset is shown
+        try {
+            $('#gridTableGroup thead tr.filter-row input').val('');
+            tbl.search('').columns().search('');
+            tbl.page('first').draw(false);
+            // final draw to reflect cleared searches
+            tbl.draw(false);
+        } catch (e) {
+            // fail silently if table operations error
+            console.warn('DataTable reset warning:', e);
+        }
     }
 
 });

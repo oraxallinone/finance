@@ -3,7 +3,9 @@
 <!--begin::Head-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>@Page.Title</title>
+    <title>@(ViewBag.Title ?? ViewData["Title"] ?? "Finance")</title>
+    <link rel="icon" type="image/png" sizes="32x32" href='@Url.Content("~/Content/img/financep1.png")' />
+    <link rel="shortcut icon" href='@Url.Content("~/Content/img/financep1.png")' />
 
     <!--Fonts-->
     <link href="~/Content/theme/css/fontsource.css" rel="stylesheet" />
@@ -229,12 +231,12 @@
                             <a href="#" class="nav-link @dashActive"> <i class="nav-icon bi bi-speedometer"></i> <p> Dashboard <i class="nav-arrow bi bi-chevron-right"></i> </p> </a>
                             
                             <ul class="nav nav-treeview">
-                                <li class="nav-item"> <a href="@Url.Action("Dashboard", "Default")" class="nav-link @dashDashboardActive"> <i class="nav-icon bi bi-circle"></i> <p>Dashboard</p> </a> </li>
+                                <li class="nav-item"> <a href="@Url.Action("Dashboard", "Default")" class="nav-link @dashDashboardActive"> <i class="nav-icon far fa-circle"></i> <p>Dashboard</p> </a> </li>
                                 <li class="nav-item"> <a href="@Url.Action("BarChart", "Default")" class="nav-link @dashBarChartActive"> <i class="nav-icon bi bi-circle"></i> <p>Bar Graph</p> </a> </li>
                                 <li class="nav-item"> <a href="@Url.Action("CalenderIndex", "Calender")" class="nav-link @dashCalenderActive"> <i class="nav-icon bi bi-circle"></i> <p>Calender</p> </a> </li>
                                 <li class="nav-item"> <a href="@Url.Action("GroupBudgetOverview", "BudgetOverview")" class="nav-link @dashGroupBudgetActive"> <i class="nav-icon bi bi-circle"></i> <p>Group Sum</p> </a> </li>
-                                <li class="nav-item"> <a href="@Url.Action("BudgetGroupingIndex", "BudgetGrouping")" class="nav-link @dashBudgetGroupingActive"> <i class="nav-icon bi bi-circle"></i> <p>Budget Grouping</p> </a> </li>
-                                <li class="nav-item"> <a href="@Url.Action("BudgetIndex", "Budget")" class="nav-link @dashBudgetIndexActive"> <i class="nav-icon bi bi-circle"></i> <p>Budget Report</p> </a> </li>
+                                <li class="nav-item"> <a href="@Url.Action("BudgetGroupingIndex", "BudgetGrouping")" class="nav-link @dashBudgetGroupingActive"> <i class="nav-icon bi bi-circle"></i> <p>Grouping</p> </a> </li>
+                                <li class="nav-item"> <a href="@Url.Action("BudgetIndex", "Budget")" class="nav-link @dashBudgetIndexActive"> <i class="nav-icon bi bi-circle"></i> <p>Final</p> </a> </li>
                             </ul>
                         </li> 
                         <li class="nav-item @masterOpen">

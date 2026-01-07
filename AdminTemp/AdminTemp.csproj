@@ -239,6 +239,8 @@
     <Content Include="Content\group.css" />
     <Content Include="Content\img\bg1.jpg" />
     <Content Include="Content\img\bg22.jpg" />
+    <Content Include="Content\img\financep1.png" />
+    <Content Include="Content\img\stats.png" />
     <Content Include="Content\report-index.css" />
     <Content Include="Content\salary.css" />
     <Content Include="Content\spinner.css" />
