@@ -282,11 +282,11 @@
 
 /* 6.Details*/
 #gridTableBudget td:nth-child(6) {
-        text-align: left;
+    text-align: left;
 }
 /* 7.G1*/
 #gridTableBudget td:nth-child(7) {
-    text-align:center;
+    text-align: center;
 }
 /* 8.G2*/
 #gridTableBudget td:nth-child(8) {
@@ -308,7 +308,7 @@
        -budget dynamic css apply
    --------------------------------------------------------------------- */
 /*6	Beer*/ /*10	CreditCard*/ /*15	EMI*/
-.div-g1-c6, .div-g1-c10 {
+.div-g1-c6, .div-g1-c10, .div-g1-c15 {
     box-shadow: rgb(248 13 219 / 71%) 0px 2px 5px -1px, rgb(0 0 0 / 57%) 0px 1px 3px -1px;
     margin-right: 7px;
     background-color: #ab194bc2;
@@ -340,8 +340,9 @@
 /*38	House Holdings*/ /*39	Medical*/ /*40	Mrg*/ /*41	Mrg2*/ /*42	Other*/ /*44	Taxi*/ /*45	Unplaned*/
 .div-g1-c8, .div-g1-c14, .div-g1-c11, .div-g1-c13, .div-g1-c9, .div-g1-c16, .div-g1-c17,
 .div-g1-c18, .div-g1-c19, .div-g1-c23, .div-g1-c26, .div-g1-c29, .div-g.div-g1-c121-c34, .div-g1-c35,
-.div-g1-c36, .div-g1-c38, .div-g1-c39, .div-g1-c40, .div-g1-c41, .div-g1-c42, .div-g1-c44, .div-g1-c45, .div-g1-c15 {
-   box-shadow: rgb(50 50 93 / 26%) 0px 2px 5px -1px, rgb(0 0 0 / 57%) 0px 1px 3px -1px;
+.div-g1-c36, .div-g1-c38, .div-g1-c39, .div-g1-c40, .div-g1-c41, .div-g1-c42, .div-g1-c44, .div-g1-c45,
+.div-g1-c48, .div-g1-c50 {
+    box-shadow: rgb(50 50 93 / 26%) 0px 2px 5px -1px, rgb(0 0 0 / 57%) 0px 1px 3px -1px;
     margin-right: 7px;
     text-align: center;
     display: flex;
@@ -351,7 +352,7 @@
     border-radius: 5px;
 }
 
-.div-g3-c27, .iv-g3-c1, .iv-g3-c20, .iv-g3-c21, .iv-g3-c22, .iv-g3-c24, .iv-g3-c25, .iv-g3-c27, .iv-g3-c28, .iv-g3-c30, .iv-g3-c31 { 
+.div-g3-c27, .iv-g3-c1, .iv-g3-c20, .iv-g3-c21, .iv-g3-c22, .iv-g3-c24, .iv-g3-c25, .iv-g3-c27, .iv-g3-c28, .iv-g3-c30, .iv-g3-c31, .div-g3-c49, .div-g3-c20, .div-g3-c30, .div-g3-c25, .div-g3-c1, .div-g3-c21, .div-g3-c22, .div-g3-c28, .div-g3-c24 {
     box-shadow: rgb(50 50 93 / 26%) 0px 2px 5px -1px, rgb(0 0 0 / 57%) 0px 1px 3px -1px;
     margin-right: 7px;
     margin-left: 7px;
@@ -382,15 +383,20 @@
 
 /* c2 Need /Essential Spend.  ----*/
 .div-g2-c2 {
-    text-align: center;
-    background: linear-gradient(90deg, #24909ddb 0%, #26C6DA 48%, #26a7b7f0 100%);
-    height: 31px;
+    padding: 5px 45px;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
-    border-radius: 3px 3px 3px 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 0 14px #eee;
+    border-radius: 4px;
+    display: block;
+    background-image: linear-gradient(to right, #43cea2 0%, #185a9d 51%, #43cea2 100%);
 }
+    .div-g2-c2:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 
 /* c3 Save / (Savings / Invest.)  ----*/
 .div-g2-c3 {

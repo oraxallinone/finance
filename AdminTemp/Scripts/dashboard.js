@@ -1,23 +1,60 @@
 ﻿$(function () {
+    //exec  dbo.SP_DashboardHeading 2026,1
+
+    $('#searchDDlG1').hide();
+    $('#searchDDlG2').hide();
+    $('#searchDDlG3').hide();
+    $('#searchDDlG4').hide();
+
+    setThisYearMonth();
+
     // Load dashboard on button click
     $("#btnLoadDashboard").on("click", function () {
         LoadDashboardData();
     });
 
+    //set current month & year
+    function setThisYearMonth() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1; // getMonth() returns 0–11
+
+        $("#ddlYear").val(year);
+        $("#ddlMonth").val(month);
+
+        LoadDashboardData();
+    }
+
     // Load on year/month change
-    $("#ddlYearDash, #ddlMonthDash").on("change", function () {
+    $("#ddlYear, #ddlMonth").on("change", function () {
+        debugger
         LoadDashboardData();
     });
 
     function LoadDashboardData() {
-        var year = parseInt($("#ddlYearDash").val(), 10) || 0;
-        var month = parseInt($("#ddlMonthDash").val(), 10) || 0;
+        var year = parseInt($("#ddlYear").val(), 10) || 0;
+        var month = parseInt($("#ddlMonth").val(), 10) || 0;
 
         if (year === 0 || month === 0) {
             //alert("Please select Year and Month");
             return;
         }
 
+        // First, load heading stats (SP)
+        $.ajax({
+            url: "/Default/GetCurrentMonthSalaryDetails",
+            type: "POST",
+            data: { year: year, month: month },
+            dataType: "json",
+            success: function (hdr) {
+                BindDashboardHeading(hdr);
+            },
+            error: function (xhr, status, err) {
+                console.error("GetCurrentMonthSalaryDetails error:", err);
+            }
+        });
+
+        // Then load the group breakdown list
         $.ajax({
             url: "/BudgetOverview/BudgetOverview",
             type: "GET",
@@ -31,6 +68,7 @@
                 alert("Error loading dashboard data.");
             }
         });
+
     }
 
     function BindDashboardCards(list) {
@@ -43,6 +81,9 @@
         var totalBudget = 0;
         var totalSpent = 0;
         var tableHtml = "";
+
+        console.log(list);
+        list.sort((a, b) => b.FixedAmount - a.FixedAmount);
 
         $.each(list, function (idx, item) {
             var no = idx + 1;
@@ -76,15 +117,15 @@
         });
 
         $("#gridGroupBreakdown tbody").html(tableHtml);
-
+        debugger
         // Update dashboard cards
         var totalRemaining = totalBudget - totalSpent;
         var totalPercentage = totalBudget > 0 ? ((totalSpent / totalBudget) * 100).toFixed(1) : 0;
 
-        $("#dashTotalBudget").text("₹ " + totalBudget.toFixed(0));
-        $("#dashSpendingAmount").text("₹ " + totalSpent.toFixed(0));
-        $("#dashRemainingAmount").text("₹ " + totalRemaining.toFixed(0));
-        $("#dashPercentage").text(totalPercentage + "%");
+        //$("#dashTotalBudget").text("₹ " + totalBudget.toFixed(0));
+        //$("#dashSpendingAmount").text("₹ " + totalSpent.toFixed(0));
+        //$("#dashRemainingAmount").text("₹ " + totalRemaining.toFixed(0));
+        //$("#dashPercentage").text(totalPercentage + "%");
     }
 
     function ResetCards() {
@@ -92,5 +133,23 @@
         $("#dashSpendingAmount").text("₹ 0.00");
         $("#dashRemainingAmount").text("₹ 0.00");
         $("#dashPercentage").text("0%");
+    }
+
+    function BindDashboardHeading(hdr) {
+        if (!hdr || hdr.error) {
+            ResetCards();
+            return;
+        }
+
+        // hdr expected to have ThisMonthSalary, ThisMonthSpending, RemainingBalance, PercentSpending
+        var salary = parseFloat(hdr.ThisMonthSalary || 0);
+        var spending = parseFloat(hdr.ThisMonthSpending || 0);
+        var remaining = parseFloat(hdr.RemainingBalance || 0);
+        var percent = hdr.PercentSpending || (salary === 0 ? "0%" : "0%");
+        $("#dashTotalBudget").text("₹ " + salary.toLocaleString('en-IN', { maximumFractionDigits: 0 }));
+        $("#dashSpendingAmount").text("₹ " + spending.toLocaleString('en-IN', { maximumFractionDigits: 0 }));
+        $("#dashRemainingAmount").text("₹ " + remaining.toLocaleString('en-IN', { maximumFractionDigits: 0 }));
+
+        $("#dashPercentage").text(percent);
     }
 });
