@@ -130,7 +130,7 @@
         var curAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
 
         // Dashboard group includes several controllers
-        var dashIs = (curController == "Default" || curController == "Calender" || curController == "BudgetOverview" || curController == "BudgetGrouping" || curController == "Budget");
+        var dashIs = (curController == "Default" || curController == "Calender" || curController == "BudgetOverview" || curController == "BudgetGrouping" || curController == "Budget" || curController == "Upload");
         var dashOpen = dashIs ? "menu-open" : "";
         var dashActive = dashIs ? "active" : "";
         var dashDashboardActive = (curController == "Default" && curAction == "Dashboard") ? "active" : "";
@@ -146,6 +146,8 @@
         var masterActive = masterIs ? "active" : "";
         var masterSalaryActive = (curController == "Salary" && curAction == "SalaryIndex") ? "active" : "";
         var masterGroupActive = (curController == "Group" && curAction == "GroupIndex") ? "active" : "";
+        var uploadFiles = (curController == "Upload" && curAction == "Index") ? "active" : "";
+
     }
 
     <div class="app-wrapper">
@@ -235,6 +237,9 @@
                                 <li class="nav-item"> <a href="@Url.Action("BarChart", "Default")" class="nav-link @dashBarChartActive"> <i class="nav-icon bi bi-circle"></i> <p>Bar Graph</p> </a> </li>
                                 <li class="nav-item"> <a href="@Url.Action("CalenderIndex", "Calender")" class="nav-link @dashCalenderActive"> <i class="nav-icon bi bi-circle"></i> <p>Calender</p> </a> </li>
                                 <li class="nav-item"> <a href="@Url.Action("GroupBudgetOverview", "BudgetOverview")" class="nav-link @dashGroupBudgetActive"> <i class="nav-icon bi bi-circle"></i> <p>Group Sum</p> </a> </li>
+
+                                <li class="nav-item"> <a href="@Url.Action("Index", "Upload")" class="nav-link @uploadFiles"> <i class="nav-icon bi bi-circle"></i> <p>File Upload</p> </a> </li>
+
                                 <li class="nav-item"> <a href="@Url.Action("BudgetGroupingIndex", "BudgetGrouping")" class="nav-link @dashBudgetGroupingActive"> <i class="nav-icon bi bi-circle"></i> <p>Grouping</p> </a> </li>
                                 <li class="nav-item"> <a href="@Url.Action("BudgetIndex", "Budget")" class="nav-link @dashBudgetIndexActive"> <i class="nav-icon bi bi-circle"></i> <p>Final</p> </a> </li>
                             </ul>
