@@ -158,6 +158,6 @@ D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\bin\Microsoft.Ow
 D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\bin\Microsoft.Owin.Security.Google.xml
 D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\bin\Microsoft.Owin.Security.Twitter.xml
 D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\obj\Debug\AdminTemp.csprojResolveAssemblyReference.cache
 D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\obj\Debug\AdminTemp.dll
 D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\obj\Debug\AdminTemp.pdb
+D:\sync with git hub\After 2025 Oct 24\FinanceTracker\AdminTemp\obj\Debug\AdminTemp.csprojResolveAssemblyReference.cache

@@ -193,6 +193,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BirthdayController.cs" />
     <Compile Include="Controllers\BudgetController.cs" />
     <Compile Include="Controllers\BudgetGroupingController.cs" />
     <Compile Include="Controllers\BudgetOverviewController.cs" />
@@ -211,6 +212,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BarGraphData.cs" />
+    <Compile Include="Models\BirthdayModel.cs" />
     <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\CalenderDataViewModel.cs" />
     <Compile Include="Models\CalenderDateViewModel.cs" />
@@ -223,6 +225,7 @@
     <Compile Include="Models\GstType.cs" />
     <Compile Include="Models\SalaryMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BirthdayService.cs" />
     <Compile Include="Service\BudgetService.cs" />
     <Compile Include="Service\BudgetOverviewService.cs" />
     <Compile Include="Service\DashboardService.cs" />
@@ -306,6 +309,7 @@
     <Content Include="Content\theme\js\adminlte.js.map" />
     <Content Include="Content\theme\js\adminlte.min.js.map" />
     <Content Include="Scripts\barchart.js" />
+    <Content Include="Scripts\birthday.js" />
     <Content Include="Scripts\budgetGrouping.js" />
     <Content Include="Scripts\budget.js" />
     <Content Include="Scripts\budgetOverview.js" />
@@ -313,6 +317,7 @@
     <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\group.js" />
     <Content Include="Scripts\salary.js" />
+    <Content Include="Upload\_Finaance_8Jan.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -340,7 +345,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Upload\" />
     <Folder Include="Views\GraphByGroup\" />
   </ItemGroup>
   <ItemGroup>
@@ -370,6 +374,11 @@
     <Content Include="Views\Default\Dashboard.cshtml" />
     <Content Include="Views\Default\BarChart.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
+    <Content Include="Upload\Salary slip tracker.xlsx" />
+    <Content Include="Upload\similipala.xlsx" />
+    <Content Include="Upload\sonali preparation.xlsx" />
+    <Content Include="Views\Birthday\BirthdayIndex.cshtml" />
+    <Content Include="Views\Birthday\ShowBirthday.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
