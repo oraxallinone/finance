@@ -204,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />
+    <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SalaryController.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="Service\DashboardService.cs" />
     <Compile Include="Service\GraphService.cs" />
     <Compile Include="Service\GroupService.cs" />
+    <Compile Include="Service\NoteService.cs" />
     <Compile Include="Service\SalaryService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -247,6 +249,7 @@
     <Content Include="Content\img\bg22.jpg" />
     <Content Include="Content\img\financep1.png" />
     <Content Include="Content\img\stats.png" />
+    <Content Include="Content\notes.css" />
     <Content Include="Content\report-index.css" />
     <Content Include="Content\salary.css" />
     <Content Include="Content\spinner.css" />
@@ -317,6 +320,7 @@
     <Content Include="Scripts\calender.js" />
     <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\group.js" />
+    <Content Include="Scripts\note.js" />
     <Content Include="Scripts\salary.js" />
     <Content Include="Upload\_Finaance_8Jan.sql" />
     <Content Include="Web.config" />
@@ -380,6 +384,7 @@
     <Content Include="Upload\sonali preparation.xlsx" />
     <Content Include="Views\Birthday\BirthdayIndex.cshtml" />
     <Content Include="Views\Birthday\ShowBirthday.cshtml" />
+    <Content Include="Views\Notes\NoteIndex.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
