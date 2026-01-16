@@ -299,6 +299,7 @@
     <Content Include="Content\theme\js\adminlte.min.js" />
     <Content Include="Content\theme\js\popper.min.js" />
     <Content Include="Content\theme\js\SidebarWrapper.js" />
+    <Content Include="Content\upload.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

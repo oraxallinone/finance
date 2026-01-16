@@ -18,5 +18,6 @@ namespace AdminTemp.Models
         public DateTime? ToDate { get; set; }
         public int? OrderRowAll { get; set; }
         public int? OrderRowYear { get; set; }
+        public decimal? SalaryTillNow { get; set; }
     }
 }

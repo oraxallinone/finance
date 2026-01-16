@@ -126,7 +126,8 @@ namespace AdminTemp.Service
                 FromData = r["FromData"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(r["FromData"]),
                 ToDate = r["ToDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(r["ToDate"]),
                 OrderRowAll = r["OrderRowAll"] == DBNull.Value ? (int?)null : Convert.ToInt32(r["OrderRowAll"]),
-                OrderRowYear = r["OrderRowYear"] == DBNull.Value ? (int?)null : Convert.ToInt32(r["OrderRowYear"])
+                OrderRowYear = r["OrderRowYear"] == DBNull.Value ? (int?)null : Convert.ToInt32(r["OrderRowYear"]),
+                SalaryTillNow = r["Need50"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(r["SalaryTillNow"]),
             };
         }
 
