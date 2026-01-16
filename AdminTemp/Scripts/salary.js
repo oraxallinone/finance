@@ -86,7 +86,7 @@
                     html += '<td>' + toDate + '</td>';
                     html += '<td>' + (item.OrderRowAll != null ? item.OrderRowAll : '') + ' row count || ' + numberOfDays + ' days</td>';
 
-                    html += '<td class="total-salary"></td>';
+                    html += '<td class="total-salary">' + (item.SalaryTillNow != null ? item.SalaryTillNow : '').toLocaleString('en-IN') + '</td>';
 
                     html += '<td>';
                     html += '<a href="#" class="me-1"><i class="fa-solid fa-pen-to-square text-warning class-btnUpdateSalary" data-id="' + item.Id + '"></i></a>';
