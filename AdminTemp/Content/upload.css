@@ -148,7 +148,8 @@
 
 /* Row highlight on hover */
 #excelPreview table tbody tr:hover td {
-    background-color: #f5f5f5;
+    background-color: #28a745;
+    color: #ffffff;
 }
 
 /* Colored cell highlights */
@@ -175,6 +176,13 @@
 .btn-view,
 .btn-delete {
     white-space: nowrap;
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+}
+
+#filesTable .btn-secondary {
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
 }
 
 .btn-view {
@@ -206,7 +214,8 @@
 #fileInput {
     border: 2px solid #dee2e6;
     border-radius: 4px;
-    padding: 8px 12px;
+    padding: 4px 8px !important;
+    font-size: 0.85rem !important;
     transition: border-color 0.3s ease-in-out;
 }
 
@@ -214,6 +223,12 @@
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Upload Button Styling */
+#btnUpload {
+    padding: 4px 12px !important;
+    font-size: 0.85rem !important;
 }
 
 /* Responsive Design */
