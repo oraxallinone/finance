@@ -193,6 +193,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\GstBill\GstBillAreaRegistration.cs" />
     <Compile Include="Controllers\BirthdayController.cs" />
     <Compile Include="Controllers\BudgetController.cs" />
     <Compile Include="Controllers\BudgetGroupingController.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -232,6 +234,7 @@
     <Compile Include="Service\DashboardService.cs" />
     <Compile Include="Service\GraphService.cs" />
     <Compile Include="Service\GroupService.cs" />
+    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\NoteService.cs" />
     <Compile Include="Service\SalaryService.cs" />
     <Compile Include="Startup.cs" />
@@ -248,7 +251,9 @@
     <Content Include="Content\img\bg1.jpg" />
     <Content Include="Content\img\bg22.jpg" />
     <Content Include="Content\img\financep1.png" />
+    <Content Include="Content\img\log-in.png" />
     <Content Include="Content\img\stats.png" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\notes.css" />
     <Content Include="Content\report-index.css" />
     <Content Include="Content\salary.css" />
@@ -320,6 +325,7 @@
     <Content Include="Scripts\calender.js" />
     <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\group.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Scripts\note.js" />
     <Content Include="Scripts\salary.js" />
     <Content Include="Upload\_Finaance_8Jan.sql" />
@@ -350,6 +356,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\GstBill\Controllers\" />
+    <Folder Include="Areas\GstBill\Models\" />
+    <Folder Include="Areas\GstBill\Views\Shared\" />
     <Folder Include="Views\GraphByGroup\" />
   </ItemGroup>
   <ItemGroup>
@@ -357,6 +366,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="Areas\GstBill\Views\web.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\_WebLayout.cshtml" />
     <Content Include="Views\Item\Registration.cshtml" />
@@ -385,6 +395,7 @@
     <Content Include="Views\Birthday\BirthdayIndex.cshtml" />
     <Content Include="Views\Birthday\ShowBirthday.cshtml" />
     <Content Include="Views\Notes\NoteIndex.cshtml" />
+    <Content Include="Views\Login\LoginIndex.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

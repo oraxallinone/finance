@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/Content/login.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/login.js"></script>
+</head>
+<body>
+    <div class="login-bg">
+        <div class="login-container">
+            <div class="login-avatar">
+                <img src="~/Content/img/log-in.png" alt="User" />
+            </div>
+            <form id="loginForm" autocomplete="off">
+                <div class="input-group">
+                    <span class="icon">&#9993;</span>
+                    <input type="text" id="email" name="email" autocomplete="off" placeholder="Email ID" />
+                </div>
+                <div class="input-group">
+                    <span class="icon">&#128274;</span>
+                    <input type="password" id="password" name="password" autocomplete="off" placeholder="Password" />
+                </div>
+                <div class="options">
+                    <label><input type="checkbox" id="rememberMe" /> Remember me</label>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn">LOGIN</button>
+                <div id="loginError" class="login-error"></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

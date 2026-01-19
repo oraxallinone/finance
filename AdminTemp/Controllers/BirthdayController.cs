@@ -16,6 +16,7 @@ namespace AdminTemp.Controllers
             return View();
         }
 
+
         [HttpPost]
         public JsonResult AddBirthday(string name, string dateOfBirth, bool isActive = true)
         {
